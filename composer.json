@@ -1,0 +1,22 @@
+{
+    "name": "tryagain/tryagain",
+    "description": "The TryAgain librairy permits to call a function again if the result is wrong.",
+    "type": "library",
+    "keywords": ["library"],
+    "homepage": "https://github.com/villfa/TryAgain",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fabien Villepinte",
+            "email": "fabien.villepinte@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "mockery/mockery": "dev-master@dev"
+    },
+    "autoload": {
+        "psr-0": { "TryAgain\\": "." }
+    },
+    "minimum-stability": "dev"
+}
