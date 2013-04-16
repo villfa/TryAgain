@@ -147,7 +147,10 @@ class Handler
     {
         if (!is_callable($callback)) {
             throw new \InvalidArgumentException(
-                sprintf('First parameter of %s must be callable', __METHOD__)
+                sprintf(
+                    'First parameter of %s must be callable instead of %s', __METHOD__,
+                    gettype($callback)
+                )
             );
         }
 
