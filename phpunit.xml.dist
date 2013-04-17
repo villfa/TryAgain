@@ -16,4 +16,15 @@
     <listeners>
         <listener class="\Mockery\Adapter\Phpunit\TestListener"></listener>
     </listeners>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./TryAgain</directory>
+            <exclude>
+                <directory suffix=".php">./TryAgain/Tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-clover" target="./clover.xml"/>
+    </logging>
 </phpunit>
