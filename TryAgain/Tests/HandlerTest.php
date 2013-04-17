@@ -20,22 +20,22 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $h->getNbTries());
         $this->assertNull($h->getLastException());
     }
-    
+
     public function testThrowExceptionAfterFewTries()
     {
         $func = function () {
             throw new \RuntimeException();
         };
-    
+
         $validator = m::mock('TryAgain\ValidatorInterface');
         $validator->shouldReceive('mustRetry')->andReturnUsing(
             function ($handler) {
                 return $handler->getNbTries() < 3;
             }
         );
-        
+
         $h = new Handler($validator);
-        
+
         try {
             $h->execute($func);
         } catch (\Exception $exception) {
@@ -44,18 +44,24 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals(3, $h->getNbTries());
             return;
         }
-        
+
         $this->fail('No exception thrown');
     }
-    
+
     public function testIntervalIsCalled()
     {
         $validator = m::mock('TryAgain\ValidatorInterface');
         $validator->shouldReceive('mustRetry')->andReturn(true, true, false);
-    
+
+        $testcase = $this;
+
         $interval = m::mock('TryAgain\IntervalInterface');
-        $interval->shouldReceive('process')->times(2); // process() must be called twice
-    
+        $interval->shouldReceive('process')->times(2)->andReturnUsing(
+            function ($handler) use ($testcase) {
+                $testcase->assertInstanceOf('TryAgain\Handler', $handler);
+            }
+        );
+
         $h = new Handler($validator, $interval);
         $h->execute(function () {});
         $this->assertEquals(3, $h->getNbTries());
