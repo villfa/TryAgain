@@ -2,7 +2,10 @@
     "name": "tryagain/tryagain",
     "description": "The TryAgain librairy permits to call a function again if the result is wrong.",
     "type": "library",
-    "keywords": ["library"],
+    "keywords": [
+        "library",
+        "error handling"
+    ],
     "homepage": "https://github.com/villfa/TryAgain",
     "license": "MIT",
     "authors": [
