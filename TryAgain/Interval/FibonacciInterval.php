@@ -9,7 +9,7 @@ class FibonacciInterval implements IntervalInterface
 {
     /** @var int */
     protected $delay = 0;
-    
+
     /** @var int */
     protected $previousDelay = 0;
 
@@ -20,8 +20,23 @@ class FibonacciInterval implements IntervalInterface
      */
     public function process(Handler $handler)
     {
+        $delay = $this->getFibonacciNumber();
+
+        if ($delay > 0) {
+            time_sleep_until(microtime(true) + $delay);
+        }
+    }
+
+    /**
+     * Return the Fibonacci suite number by number
+     *
+     * @return int
+     */
+    protected function getFibonacciNumber()
+    {
+        $delay = $this->delay;
+
         if ($this->delay > 0) {
-            time_sleep_until(microtime(true) + $this->delay);
             list($this->delay, $this->previousDelay) = array(
                 $this->previousDelay + $this->delay,
                 $this->delay
@@ -29,5 +44,7 @@ class FibonacciInterval implements IntervalInterface
         } else {
             $this->delay = 1;
         }
+
+        return $delay;
     }
 }
