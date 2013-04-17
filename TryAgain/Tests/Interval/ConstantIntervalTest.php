@@ -14,13 +14,13 @@ class ConstantIntervalTest extends \PHPUnit_Framework_TestCase
             new ConstantInterval()
         );
     }
-    
+
     public function testErrorWithWrongDelay()
     {
         $this->setExpectedException('\InvalidArgumentException');
         new ConstantInterval('not a valid delay');
     }
-    
+
     public function testValidCase()
     {
         $interval = new ConstantInterval(0.2);
