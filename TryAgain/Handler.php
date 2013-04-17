@@ -79,8 +79,7 @@ class Handler
             if ($this->interval !== null) {
                 $this->interval->process($this);
             }
-        }
-        while (true);
+        } while (true);
 
         if ($this->exception !== null) {
             throw $this->exception;
