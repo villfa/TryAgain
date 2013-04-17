@@ -18,7 +18,7 @@ class ConstantInterval implements IntervalInterface
         if (!is_numeric($delay) || $delay < 0) {
             throw new \InvalidArgumentException('delay must be a number greater than or equal to zero');
         }
-        
+
         $this->delay = (float) $delay;
     }
 

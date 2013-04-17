@@ -18,7 +18,7 @@ class CollectionValidator extends \SplObjectStorage implements ValidatorInterfac
     }
 
     /**
-     * @param TryAgain\Handler $handler
+     * @param  TryAgain\Handler $handler
      * @return bool
      */
     public function mustRetry(Handler $handler)
@@ -29,7 +29,7 @@ class CollectionValidator extends \SplObjectStorage implements ValidatorInterfac
                 break;
             }
         }
-    
+
         return (bool) $mustRetry;
     }
 }

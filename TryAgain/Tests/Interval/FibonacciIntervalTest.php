@@ -14,7 +14,7 @@ class FibonacciIntervalTest extends \PHPUnit_Framework_TestCase
             new FibonacciInterval()
         );
     }
-    
+
     public function testFibonacciSuite()
     {
         $method = new \ReflectionMethod(
@@ -34,7 +34,7 @@ class FibonacciIntervalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(21, $method->invoke($interval));
         $this->assertEquals(34, $method->invoke($interval));
     }
-    
+
     public function testSleepOneSecond()
     {
         $handler = m::mock('TryAgain\Handler');

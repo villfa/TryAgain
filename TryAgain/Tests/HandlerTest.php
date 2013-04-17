@@ -42,6 +42,7 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
             $this->assertInstanceOf('\RuntimeException', $exception);
             $this->assertNull($h->getLastResult());
             $this->assertEquals(3, $h->getNbTries());
+
             return;
         }
 

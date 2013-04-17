@@ -27,7 +27,7 @@ class Handler
 
     /**
      * @param TryAgain\ValidatorInterface $validator
-     * @param TryAgain\IntervalInterface $interval
+     * @param TryAgain\IntervalInterface  $interval
      */
     public function __construct(
         ValidatorInterface $validator = null,
@@ -39,10 +39,10 @@ class Handler
     }
 
     /**
-     * @param callable $callback
-     * @param mixed $arguments
-     * @param TryAgain\ValidatorInterface $validator
-     * @param TryAgain\IntervalInterface $interval
+     * @param  callable                    $callback
+     * @param  mixed                       $arguments
+     * @param  TryAgain\ValidatorInterface $validator
+     * @param  TryAgain\IntervalInterface  $interval
      * @return mixed
      */
     public function execute(
@@ -116,12 +116,13 @@ class Handler
      * Set the validator to use
      * Can be handy for method chaining
      *
-     * @param TryAgain\ValidatorInterface $validator
+     * @param  TryAgain\ValidatorInterface $validator
      * @return TryAgain\Handler
      */
     public function setValidator(ValidatorInterface $validator = null)
     {
         $this->validator = $validator;
+
         return $this;
     }
 
@@ -129,17 +130,18 @@ class Handler
      * Set the interval to use
      * Can be handy for method chaining
      *
-     * @param TryAgain\IntervalInterface $interval
+     * @param  TryAgain\IntervalInterface $interval
      * @return TryAgain\Handler
      */
     public function setInterval(IntervalInterface $interval = null)
     {
         $this->interval = $interval;
+
         return $this;
     }
 
     /**
-     * @param callable $callback
+     * @param  callable         $callback
      * @return TryAgain\Handler
      */
     public function setCallback($callback)
@@ -154,6 +156,7 @@ class Handler
         }
 
         $this->callback = $callback;
+
         return $this;
     }
 
@@ -166,7 +169,7 @@ class Handler
     }
 
     /**
-     * @param mixed $arguments
+     * @param  mixed            $arguments
      * @return TryAgain\Handler
      */
     public function setArguments($arguments)
@@ -176,6 +179,7 @@ class Handler
         }
 
         $this->arguments = $arguments;
+
         return $this;
     }
 
