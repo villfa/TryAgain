@@ -14,7 +14,7 @@ class Handler
     protected $callback;
 
     /** @var array */
-    protected $arguments;
+    protected $arguments = array();
 
     /** @var int */
     protected $nbTries = 0;
