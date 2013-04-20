@@ -19,6 +19,26 @@ if (!$percentage) {
 }
 
 $xml = new SimpleXMLElement(file_get_contents($inputFile));
+
+/* @var $classes SimpleXMLElement[] */
+$classes = $xml->xpath('//class');
+
+foreach ($classes as $class) {
+    if (!isset($class->metrics) || !isset($class->metrics[0])) {
+        continue;
+    }
+    $metric = $class->metrics[0];
+    if (intval($metric['elements']) == intval($metric['coveredelements'])) {
+        continue;
+    }
+    $classname = $class['name'];
+    if (isset($class['namespace'])) {
+        $classname = $class['namespace'].'\\'.$classname;
+    }
+    $coverage = round(($metric['coveredelements'] / $metric['elements']) * 100);
+    echo sprintf('Coverage of class %s is %s%%', $classname, $coverage).PHP_EOL;
+}
+
 /* @var $metrics SimpleXMLElement[] */
 $metrics = $xml->xpath('//metrics');
 
