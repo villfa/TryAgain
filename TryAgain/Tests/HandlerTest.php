@@ -49,6 +49,26 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $this->fail('No exception thrown');
     }
 
+    public function testForcedResult()
+    {
+        $validator = m::mock('TryAgain\ValidatorInterface');
+        $validator->shouldReceive('mustRetry')->andReturnUsing(
+            function ($handler) {
+                $handler->setResult('FORCED_RESULT');
+
+                return false;
+            }
+        );
+
+        $func = function () {
+            throw new \Exception();
+        };
+
+        $h = new Handler($validator);
+        $this->assertEquals('FORCED_RESULT', $h->execute($func));
+        $this->assertEquals('FORCED_RESULT', $h->getLastResult());
+    }
+
     public function testIntervalIsCalled()
     {
         $validator = m::mock('TryAgain\ValidatorInterface');

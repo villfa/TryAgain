@@ -97,6 +97,18 @@ class Handler
     }
 
     /**
+     * @param  mixed            $result
+     * @return TryAgain\Handler
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+        $this->exception = null;
+
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getLastResult()
