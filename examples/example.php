@@ -21,20 +21,11 @@ function divide($a, $b)
 $handler = new Handler(
     new AnonymousValidator(
         function ($handler) {
-            $mustRetry = false;
-            
             if ($handler->getLastException() instanceof \InvalidArgumentException) {
-                $mustRetry = true;
-                $handler->setCallback(
-                    function ($message) {
-                        return $message;
-                    }
-                )->setArguments(
-                    $handler->getLastException()->getMessage()
-                );
+                $handler->setResult($handler->getLastException()->getMessage());
             }
             
-            return $mustRetry;
+            return false;
         }
     )
 );
