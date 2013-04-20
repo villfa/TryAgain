@@ -25,7 +25,7 @@ suggested parameters below.
 
     {
         "require": {
-            "villfa/tryagain": "dev-master"
+            "villfa/TryAgain": ">=1.0.0"
         }
     }
 

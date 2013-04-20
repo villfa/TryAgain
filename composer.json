@@ -1,6 +1,7 @@
 {
     "name": "villfa/TryAgain",
     "description": "The TryAgain library permits to call a function again if the result is wrong.",
+    "version": "1.0.0",
     "type": "library",
     "keywords": [
         "library",
@@ -18,10 +19,10 @@
         "php": ">=5.3.3"
     },
     "require-dev": {
-        "mockery/mockery": "dev-master@dev"
+        "mockery/mockery": ">=0.8.0"
     },
     "autoload": {
         "psr-0": { "TryAgain\\": "." }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
