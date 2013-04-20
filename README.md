@@ -21,7 +21,7 @@ suggested parameters below.
 
     {
         "require": {
-            "tryagain/tryagain": "dev-master"
+            "villfa/tryagain": "dev-master"
         }
     }
 
