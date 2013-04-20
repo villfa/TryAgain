@@ -3,6 +3,10 @@ TryAgain
 
 [![Build Status](https://secure.travis-ci.org/villfa/TryAgain.png?branch=master)](http://travis-ci.org/villfa/TryAgain)
 
+TryAgain is a very light PHP library which permits to call a function again
+when the result is not satisfying.
+
+The main advantage is that it permits to avoid code duplication by creating reusable validators.
 
 Server Requirements
 -------------------
@@ -38,3 +42,21 @@ To run the test suite, you need [composer](http://getcomposer.org) and
     $ cd path/to/TryAgain
     $ composer.phar install --dev
     $ phpunit
+
+Example
+-------
+
+Here a minimalist example:
+
+``` php
+<?php
+
+require 'vendor/autoload.php';
+
+$handler = new \TryAgain\Handler;
+$handler->execute('printf', 'Hello world');
+
+```
+
+More detailed examples are available in
+[https://github.com/villfa/TryAgain/tree/master/examples](the example directory  "see examples").
