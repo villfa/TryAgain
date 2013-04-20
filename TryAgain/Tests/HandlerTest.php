@@ -67,4 +67,58 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $h->execute(function () {});
         $this->assertEquals(3, $h->getNbTries());
     }
+
+    public function testSetValidatorIsChainable()
+    {
+        $h = new Handler();
+
+        $this->assertEquals($h, $h->setValidator());
+        $this->assertNull($h->validator);
+
+        $validator = m::mock('TryAgain\ValidatorInterface');
+        $this->assertEquals($h, $h->setValidator($validator));
+        $this->assertEquals($validator, $h->validator);
+    }
+
+    public function testSetIntervalIsChainable()
+    {
+        $h = new Handler();
+
+        $this->assertEquals($h, $h->setInterval());
+        $this->assertNull($h->interval);
+
+        $interval = m::mock('TryAgain\IntervalInterface');
+        $this->assertEquals($h, $h->setInterval($interval));
+        $this->assertEquals($interval, $h->interval);
+    }
+
+    public function testExceptionWithWrongCallback()
+    {
+        $h = new Handler();
+
+        $this->setExpectedException('\InvalidArgumentException');
+        $h->setCallback('not a valid callback');
+    }
+
+    public function testSetCallbackIsChainable()
+    {
+        $h = new Handler();
+        $callback = function () {};
+        $this->assertEquals($h, $h->setCallback($callback));
+        $this->assertEquals($callback, $h->getCallback());
+    }
+
+    public function testArgumentsAreInArray()
+    {
+        $h = new Handler();
+        $this->assertEquals(array(), $h->getArguments());
+
+        $array = array('foo' => 'bar');
+        $this->assertEquals($h, $h->setArguments($array));
+        $this->assertEquals($array, $h->getArguments());
+
+        $string = 'not an array';
+        $this->assertEquals($h, $h->setArguments($string));
+        $this->assertEquals(array($string), $h->getArguments());
+    }
 }
