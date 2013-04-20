@@ -1,5 +1,5 @@
 {
-    "name": "villfa/tryagain",
+    "name": "villfa/TryAgain",
     "description": "The TryAgain library permits to call a function again if the result is wrong.",
     "type": "library",
     "keywords": [
