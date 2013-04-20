@@ -58,5 +58,4 @@ $handler->execute('printf', 'Hello world');
 
 ```
 
-More detailed examples are available in
-[https://github.com/villfa/TryAgain/tree/master/examples](the example directory  "see examples").
+More detailed examples are available in [the examples directory](examples "see examples").
