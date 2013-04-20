@@ -68,6 +68,32 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(3, $h->getNbTries());
     }
 
+    public function testExecuteOverridesValidator()
+    {
+        $h = new Handler();
+        $this->assertNull($h->validator);
+
+        $validator = m::mock('TryAgain\ValidatorInterface');
+        $validator->shouldReceive('mustRetry')->andReturn(false);
+
+        $h->execute(function () {}, array(), $validator);
+
+        $this->assertEquals($validator, $h->validator);
+    }
+
+    public function testExecuteOverridesInterval()
+    {
+        $h = new Handler();
+        $this->assertNull($h->interval);
+
+        $interval = m::mock('TryAgain\IntervalInterface');
+        $interval->shouldReceive('process');
+
+        $h->execute(function () {}, array(), null, $interval);
+
+        $this->assertEquals($interval, $h->interval);
+    }
+
     public function testSetValidatorIsChainable()
     {
         $h = new Handler();
