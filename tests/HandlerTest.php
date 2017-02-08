@@ -85,7 +85,8 @@ class HandlerTest extends TestCase
         );
 
         $h = new Handler($validator, $interval);
-        $h->execute(function () {});
+        $h->execute(function () {
+        });
         $this->assertEquals(3, $h->getNbTries());
     }
 
@@ -97,7 +98,8 @@ class HandlerTest extends TestCase
         $validator = m::mock('TryAgain\ValidatorInterface');
         $validator->shouldReceive('mustRetry')->andReturn(false);
 
-        $h->execute(function () {}, array(), $validator);
+        $h->execute(function () {
+        }, array(), $validator);
 
         $this->assertEquals($validator, $h->validator);
     }
@@ -110,7 +112,8 @@ class HandlerTest extends TestCase
         $interval = m::mock('TryAgain\IntervalInterface');
         $interval->shouldReceive('process');
 
-        $h->execute(function () {}, array(), null, $interval);
+        $h->execute(function () {
+        }, array(), null, $interval);
 
         $this->assertEquals($interval, $h->interval);
     }
@@ -152,7 +155,8 @@ class HandlerTest extends TestCase
     public function testSetCallbackIsChainable()
     {
         $h = new Handler();
-        $callback = function () {};
+        $callback = function () {
+        };
         $this->assertEquals($h, $h->setCallback($callback));
         $this->assertEquals($callback, $h->getCallback());
     }

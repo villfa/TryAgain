@@ -32,8 +32,7 @@ class Handler
     public function __construct(
         ValidatorInterface $validator = null,
         IntervalInterface $interval = null
-    )
-    {
+    ) {
         $this->validator = $validator;
         $this->interval = $interval;
     }
@@ -50,8 +49,7 @@ class Handler
         $arguments = array(),
         ValidatorInterface $validator = null,
         IntervalInterface$interval = null
-    )
-    {
+    ) {
         $this->nbTries = 0;
         $this->setCallback($callback);
         $this->setArguments($arguments);

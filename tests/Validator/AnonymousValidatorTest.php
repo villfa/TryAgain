@@ -13,7 +13,8 @@ class AnonymousValidatorTest extends TestCase
         $this->assertInstanceOf(
             'TryAgain\ValidatorInterface',
             new AnonymousValidator(
-                function () {}
+                function () {
+                }
             )
         );
     }

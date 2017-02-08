@@ -13,7 +13,8 @@ class AnonymousIntervalTest extends TestCase
         $this->assertInstanceOf(
             'TryAgain\IntervalInterface',
             new AnonymousInterval(
-                function () {}
+                function () {
+                }
             )
         );
     }
