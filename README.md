@@ -11,7 +11,7 @@ The main advantage is that it permits to avoid code duplication by creating reus
 Server Requirements
 -------------------
 
-- PHP version 5.3.3 or newer
+- PHP version 7.0 or newer
 
 Installation
 ------------
@@ -41,7 +41,7 @@ To run the test suite, you need [composer](http://getcomposer.org) and
 
     $ cd path/to/TryAgain
     $ composer.phar install --dev
-    $ phpunit
+    $ ./vendor/bin/phpunit
 
 Example
 -------
