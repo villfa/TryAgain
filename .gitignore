@@ -1,6 +1,7 @@
 vendor/
 build/logs/
 php-cs-fixer.phar
+.php_cs.cache
 composer.phar
 composer.lock
 phpunit.xml
