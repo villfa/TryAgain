@@ -2,10 +2,11 @@
 
 namespace TryAgain\Tests\Interval;
 
+use PHPUnit\Framework\TestCase;
 use TryAgain\Interval\ConstantInterval;
-use \Mockery as m;
+use Mockery as m;
 
-class ConstantIntervalTest extends \PHPUnit_Framework_TestCase
+class ConstantIntervalTest extends TestCase
 {
     public function testImplementsInterface()
     {
@@ -15,9 +16,11 @@ class ConstantIntervalTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testErrorWithWrongDelay()
     {
-        $this->setExpectedException('\InvalidArgumentException');
         new ConstantInterval('not a valid delay');
     }
 

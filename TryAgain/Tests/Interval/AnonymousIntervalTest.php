@@ -2,10 +2,11 @@
 
 namespace TryAgain\Tests\Interval;
 
+use PHPUnit\Framework\TestCase;
 use TryAgain\Interval\AnonymousInterval;
-use \Mockery as m;
+use Mockery as m;
 
-class AnonymousIntervalTest extends \PHPUnit_Framework_TestCase
+class AnonymousIntervalTest extends TestCase
 {
     public function testImplementsInterface()
     {

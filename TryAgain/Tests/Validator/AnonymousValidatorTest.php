@@ -2,10 +2,11 @@
 
 namespace TryAgain\Tests\Validator;
 
+use PHPUnit\Framework\TestCase;
 use TryAgain\Validator\AnonymousValidator;
-use \Mockery as m;
+use Mockery as m;
 
-class AnonymousValidatorTest extends \PHPUnit_Framework_TestCase
+class AnonymousValidatorTest extends TestCase
 {
     public function testImplementsInterface()
     {

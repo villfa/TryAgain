@@ -1,8 +1,7 @@
 language: php
 php:
-  - 5.3
-  - 5.4
-  - 5.5
+  - 7.0
+  - 7.1
 
 before_script:
   - composer install --dev
@@ -10,4 +9,3 @@ before_script:
 
 script:
   - phpunit
-  - php build/coverage-checker.php build/logs/clover.xml 90

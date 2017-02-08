@@ -2,10 +2,11 @@
 
 namespace TryAgain\Tests;
 
+use PHPUnit\Framework\TestCase;
 use TryAgain\Handler;
-use \Mockery as m;
+use Mockery as m;
 
-class HandlerTest extends \PHPUnit_Framework_TestCase
+class HandlerTest extends TestCase
 {
     public function testSimpliestCase()
     {
@@ -138,11 +139,13 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($interval, $h->interval);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testExceptionWithWrongCallback()
     {
         $h = new Handler();
 
-        $this->setExpectedException('\InvalidArgumentException');
         $h->setCallback('not a valid callback');
     }
 

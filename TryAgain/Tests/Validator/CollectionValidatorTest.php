@@ -2,10 +2,11 @@
 
 namespace TryAgain\Tests\Validator;
 
+use PHPUnit\Framework\TestCase;
 use TryAgain\Validator\CollectionValidator;
-use \Mockery as m;
+use Mockery as m;
 
-class CollectionValidatorTest extends \PHPUnit_Framework_TestCase
+class CollectionValidatorTest extends TestCase
 {
     public function testImplementsInterface()
     {

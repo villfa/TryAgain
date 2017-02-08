@@ -2,10 +2,11 @@
 
 namespace TryAgain\Tests\Interval;
 
+use PHPUnit\Framework\TestCase;
 use TryAgain\Interval\FibonacciInterval;
-use \Mockery as m;
+use Mockery as m;
 
-class FibonacciIntervalTest extends \PHPUnit_Framework_TestCase
+class FibonacciIntervalTest extends TestCase
 {
     public function testImplementsInterface()
     {
