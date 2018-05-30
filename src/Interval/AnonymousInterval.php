@@ -19,7 +19,7 @@ class AnonymousInterval implements IntervalInterface
     }
 
     /**
-     * @param TryAgain\Handler $handler
+     * @param Handler $handler
      */
     public function process(Handler $handler)
     {

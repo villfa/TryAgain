@@ -19,7 +19,7 @@ class AnonymousValidator implements ValidatorInterface
     }
 
     /**
-     * @param  TryAgain\Handler $handler
+     * @param  Handler $handler
      * @return bool
      */
     public function mustRetry(Handler $handler)

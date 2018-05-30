@@ -16,7 +16,7 @@ class FibonacciInterval implements IntervalInterface
     /**
      * Make the script sleep during a given delay
      *
-     * @param TryAgain\Handler $handler
+     * @param Handler $handler
      */
     public function process(Handler $handler)
     {

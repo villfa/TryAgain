@@ -19,13 +19,13 @@ class ConstantInterval implements IntervalInterface
             throw new \InvalidArgumentException('delay must be a number greater than or equal to zero');
         }
 
-        $this->delay = (float) $delay;
+        $this->delay = $delay;
     }
 
     /**
      * Make the script sleep during a given delay
      *
-     * @param TryAgain\Handler $handler
+     * @param Handler $handler
      */
     public function process(Handler $handler)
     {

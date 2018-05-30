@@ -2,10 +2,12 @@ language: php
 php:
   - 7.0
   - 7.1
+  - 7.2
 
 before_script:
   - composer install --dev
   - mkdir -p build/logs
 
 script:
-  - phpunit
+  - vendor/bin/phpunit
+  - vendor/bin/phpstan analyze src --level=7

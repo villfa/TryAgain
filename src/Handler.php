@@ -4,10 +4,10 @@ namespace TryAgain;
 
 class Handler
 {
-    /** @var TryAgain\ValidatorInterface */
+    /** @var null|ValidatorInterface */
     public $validator;
 
-    /** @var TryAgain\IntervalInterface */
+    /** @var null|IntervalInterface */
     public $interval;
 
     /** @var callable */
@@ -22,12 +22,12 @@ class Handler
     /** @var mixed */
     protected $result;
 
-    /** @var \Exception */
+    /** @var null|\Exception */
     protected $exception;
 
     /**
-     * @param TryAgain\ValidatorInterface $validator
-     * @param TryAgain\IntervalInterface  $interval
+     * @param ValidatorInterface $validator
+     * @param IntervalInterface  $interval
      */
     public function __construct(
         ValidatorInterface $validator = null,
@@ -38,17 +38,17 @@ class Handler
     }
 
     /**
-     * @param  callable                    $callback
-     * @param  mixed                       $arguments
-     * @param  TryAgain\ValidatorInterface $validator
-     * @param  TryAgain\IntervalInterface  $interval
+     * @param  callable           $callback
+     * @param  mixed              $arguments
+     * @param  ValidatorInterface $validator
+     * @param  IntervalInterface  $interval
      * @return mixed
      */
     public function execute(
         $callback,
         $arguments = array(),
         ValidatorInterface $validator = null,
-        IntervalInterface$interval = null
+        IntervalInterface $interval = null
     ) {
         $this->nbTries = 0;
         $this->setCallback($callback);
@@ -95,8 +95,8 @@ class Handler
     }
 
     /**
-     * @param  mixed            $result
-     * @return TryAgain\Handler
+     * @param  mixed   $result
+     * @return Handler
      */
     public function setResult($result)
     {
@@ -126,8 +126,8 @@ class Handler
      * Set the validator to use
      * Can be handy for method chaining
      *
-     * @param  TryAgain\ValidatorInterface $validator
-     * @return TryAgain\Handler
+     * @param  ValidatorInterface $validator
+     * @return Handler
      */
     public function setValidator(ValidatorInterface $validator = null)
     {
@@ -140,8 +140,8 @@ class Handler
      * Set the interval to use
      * Can be handy for method chaining
      *
-     * @param  TryAgain\IntervalInterface $interval
-     * @return TryAgain\Handler
+     * @param  IntervalInterface $interval
+     * @return Handler
      */
     public function setInterval(IntervalInterface $interval = null)
     {
@@ -151,8 +151,8 @@ class Handler
     }
 
     /**
-     * @param  callable         $callback
-     * @return TryAgain\Handler
+     * @param  callable $callback
+     * @return Handler
      */
     public function setCallback($callback)
     {
@@ -179,8 +179,8 @@ class Handler
     }
 
     /**
-     * @param  mixed            $arguments
-     * @return TryAgain\Handler
+     * @param  mixed   $arguments
+     * @return Handler
      */
     public function setArguments($arguments)
     {
